@@ -18,13 +18,12 @@ class CreateItemsTable extends Migration {
             $table->string('title', 150);
             $table->longtext('description');
             $table->integer('price');
-            $table->string('firstImageSlug', 60);
-            $table->string('secondImageSlug', 60);
-            $table->string('thirdImageSlug', 60);
+            $table->string('firstImageSlug', 60)->unique();
+            $table->string('secondImageSlug', 60)->nullable();
+            $table->string('thirdImageSlug', 60)->nullable();
             $table->boolean('hasBeenSold');
             $table->timestamps();
             $table->string('sellerEmail');
-			
 		});
 	}
 

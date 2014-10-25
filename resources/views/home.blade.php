@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('content')
-  Home page 
+  Home page yo.
   
   {!! Form::open() !!}
 

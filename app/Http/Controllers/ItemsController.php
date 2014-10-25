@@ -6,13 +6,14 @@ use App\Item;
 class ItemsController extends Controller {
 
     /**
-     * @Get("/add-item")
+     * @Get("/add")
      */
     public function index()
     {
-        $items = Item::get();
+        $item = Item::find(1);
 
-        dd($items);
+        return $item;
+        //how to pass this information into the view
     }
 
 }
