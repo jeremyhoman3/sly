@@ -11,39 +11,65 @@ class ItemsController extends Controller {
     }
 
     /**
-     * @Get("/item/add")
+     * View all items
+     *
+     * @Get("/item/index")
      */
-    public function add()
+    public function index()
     {
-        return view('items.add');
-        //form will go here.
+        $items = $this->item->all();
+        //dd($items);
+        return view('items.index', compact('items'));
     }
 
     /**
-     * @Get("/item/{id}")
+     * Show details about item, given certain id.
+     *
+     * @Get("/item/id/{id}")
      */
     public function show($id)
     {
         $item = $this->item->find($id);
+
         //dd($item);
 
         return view('items.show', compact('item'));
     }
 
     /**
-     * @Post("/item/submit")
+     * Show a form for user to submit a new item.
+     *
+     * @Get("/item/submit")
      */
     public function submit()
     {
-        return "it worked";
+        return view('items.submit');
     }
 
     /**
+     * Store item in database.
+     *
+     * @Post("/item/store")
+     */
+    public function store(Request $request, Item $item)
+    {
+        //figure out how to do this - requires instance of uploadedfile
+
+        //$imageSlug = $this->item->firstImageSlug->getClientOriginalName();
+        //return $imageSlug;
+
+        //$item->create($request->all());
+        //return redirect()->route('item.index');
+    }
+
+    /**
+     * Edit existing item
+     *
      * @Get("/item/{id}/edit")
      */
     public function edit($id)
     {
-       //as a seller, I want to edit my already-posted item so that I can lower the price
+        //as a seller, I want to edit my already-posted item so that I can lower the price
     }
 
 }

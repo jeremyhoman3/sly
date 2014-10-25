@@ -3,7 +3,7 @@
 @section('content')
     <h2>Submit your item</h2>
 
-    {!! Form::open(['url' => 'item/submit']) !!}
+    {!! Form::open(['url' => 'item/store', 'files' => 'true']) !!}
 
     <div class="form-group">
         {!! Form::label('title', 'Title') !!}
@@ -23,7 +23,7 @@
     <div class="form-group">
             {!! Form::label('item-image', 'Item Image (1 image required)') !!}
             <br><br>
-            {!! Form::file('image1') !!}<br>
+            {!! Form::file('firstImageSlug') !!}<br>
             {!! Form::file('image2') !!}<br>
             {!! Form::file('image3') !!}<br>
     </div>
