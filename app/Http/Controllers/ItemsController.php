@@ -5,15 +5,45 @@ use App\Item;
 
 class ItemsController extends Controller {
 
-    /**
-     * @Get("/add")
-     */
-    public function index()
+    public function __construct(Item $item)
     {
-        $item = Item::find(1);
+        $this->item = $item;
+    }
 
-        return $item;
-        //how to pass this information into the view
+    /**
+     * @Get("/item/add")
+     */
+    public function add()
+    {
+        return view('items.add');
+        //form will go here.
+    }
+
+    /**
+     * @Get("/item/{id}")
+     */
+    public function show($id)
+    {
+        $item = $this->item->find($id);
+        //dd($item);
+
+        return view('items.show', compact('item'));
+    }
+
+    /**
+     * @Post("/item/submit")
+     */
+    public function submit()
+    {
+        return "it worked";
+    }
+
+    /**
+     * @Get("/item/{id}/edit")
+     */
+    public function edit($id)
+    {
+       //as a seller, I want to edit my already-posted item so that I can lower the price
     }
 
 }

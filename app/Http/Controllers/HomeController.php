@@ -23,12 +23,4 @@ class HomeController extends Controller {
 		return view('home');
 	}
 
-    /**
-     * @Get("/hello")
-     */
-    public function hello()
-    {
-        return view('home');
-    }
-
 }
