@@ -2,12 +2,9 @@
 
 use Illuminate\Routing\Controller;
 
-class PageController extends Controller {
+class PagesController extends Controller {
 
-    /**
-     * @Get("/contact")
-     */
-    public function index()
+    public function contact()
     {
         return view('contact');
     }

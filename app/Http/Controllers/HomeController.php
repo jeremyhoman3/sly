@@ -16,7 +16,7 @@ class HomeController extends Controller {
 	*/
 
 	/**
-	 * @Get("/")
+	 *
 	 */
 	public function index()
 	{

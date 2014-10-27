@@ -1,6 +1,6 @@
 @extends('master')
 
 @section('content')
-  Contact Page
+  Contact Page yo diggity.
 
 @stop

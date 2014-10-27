@@ -1,75 +1,88 @@
 <?php namespace App\Http\Controllers;
 
-use Illuminate\Routing\Controller;
 use App\Item;
+use Illuminate\Routing\Controller;
 
 class ItemsController extends Controller {
 
-    public function __construct(Item $item)
-    {
-        $this->item = $item;
-    }
+	/**
+	 * Display a listing of the resource.
+	 *
+	 * @return Response
+	 */
+	public function index()
+	{
+		$items = Item::get();
 
-    /**
-     * View all items
-     *
-     * @Get("/item/index")
-     */
-    public function index()
-    {
-        $items = $this->item->all();
-        //dd($items);
         return view('items.index', compact('items'));
-    }
+	}
 
-    /**
-     * Show details about item, given certain id.
-     *
-     * @Get("/item/id/{id}")
-     */
-    public function show($id)
-    {
-        $item = $this->item->find($id);
+	/**
+	 * Show the form for creating a new resource.
+	 *
+	 * @return Response
+	 */
+	public function create()
+	{
+		return view('items.create');
+	}
 
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @return Response
+	 */
+	public function store()
+	{
+		return "store item function runs here";
+	}
+
+	/**
+	 * Display the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function show($id)
+	{
+		$item = Item::whereId($id)->first();
         //dd($item);
-
         return view('items.show', compact('item'));
-    }
+	}
 
-    /**
-     * Show a form for user to submit a new item.
-     *
-     * @Get("/item/submit")
-     */
-    public function submit()
-    {
-        return view('items.submit');
-    }
+	/**
+	 * Show the form for editing the specified resource.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function edit($id)
+	{
+        $item = Item::whereId($id)->first();
 
-    /**
-     * Store item in database.
-     *
-     * @Post("/item/store")
-     */
-    public function store(Request $request, Item $item)
-    {
-        //figure out how to do this - requires instance of uploadedfile
+        return view('items.edit', compact('item'));
+	}
 
-        //$imageSlug = $this->item->firstImageSlug->getClientOriginalName();
-        //return $imageSlug;
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function update($id)
+	{
+		//
+	}
 
-        //$item->create($request->all());
-        //return redirect()->route('item.index');
-    }
-
-    /**
-     * Edit existing item
-     *
-     * @Get("/item/{id}/edit")
-     */
-    public function edit($id)
-    {
-        //as a seller, I want to edit my already-posted item so that I can lower the price
-    }
+	/**
+	 * Remove the specified resource from storage.
+	 *
+	 * @param  int  $id
+	 * @return Response
+	 */
+	public function destroy($id)
+	{
+		//
+	}
 
 }

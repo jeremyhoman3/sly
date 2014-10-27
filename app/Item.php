@@ -10,6 +10,6 @@ class Item extends Eloquent {
      * @var array
      */
     protected $fillable = [
-        'title', 'description', 'price',
+        'title', 'description', 'price', 'image1'
     ];
 }
