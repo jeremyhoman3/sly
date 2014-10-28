@@ -1,14 +1,9 @@
 <?php
 
-//Route::bind('items', function($id)
-//{
-//      return App\Item::whereId($id)->first();
-//});
+$router->get('/', '\App\Http\Controllers\ItemsController@index');
 
-$router->get('/', function()
-{
-    return "home page goes here.";
-});
+$router->get('/sign-in', '\App\Http\Controllers\PagesController@signin');
+$router->get('/faq', '\App\Http\Controllers\PagesController@faq');
 
 $router->get('/contact', ['as' => 'contact', 'uses' => '\App\Http\Controllers\PagesController@contact']);
 

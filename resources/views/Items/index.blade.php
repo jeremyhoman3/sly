@@ -1,5 +1,5 @@
 @extends('...master')
 
 @section('content')
-    <h2>View items for sale</h2>
+    <h3>View items for sale</h3>
 @stop

@@ -1,7 +1,7 @@
 @extends('master')
 
 @section('content')
-    <h2>Edit your item</h2>
+    <h3>Edit your item</h3>
 
     {!! Form::model($item, ['route' => ['items.store', $item->id]]) !!}
 

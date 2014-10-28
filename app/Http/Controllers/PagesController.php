@@ -9,4 +9,14 @@ class PagesController extends Controller {
         return view('contact');
     }
 
+    public function signin()
+    {
+        return view('sign-in');
+    }
+
+    public function faq()
+    {
+        return view('faq');
+    }
+
 }
