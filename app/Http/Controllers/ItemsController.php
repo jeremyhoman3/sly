@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateItemRequest;
 use App\Item;
 use Illuminate\Routing\Controller;
 
@@ -13,7 +14,7 @@ class ItemsController extends Controller {
 	public function index()
 	{
 		$items = Item::get();
-
+        //dd($items);
         return view('items.index', compact('items'));
 	}
 
@@ -27,14 +28,26 @@ class ItemsController extends Controller {
 		return view('items.create');
 	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param CreateItemRequest $request
+     * @return Response
+     */
+	public function store(CreateItemRequest $request)
 	{
-		return "store item function runs here";
+		//$input = $request->file('image1');
+        //dd($input);
+
+        $item = new Item;
+
+        $item->title = $request->get('title');
+        $item->description = $request->get('description');
+        $item->price = $request->get('price');
+        $item->firstImageSlug = $request->file('image1')->getClientOriginalName();
+        $item->hasBeenSold = false;
+        $item->sellerEmail = "example@gmail.com";
+        $item->save();
 	}
 
 	/**

@@ -16,8 +16,8 @@
     <div class="form-group">
             {!! Form::label('item-image', 'Item Image (1 image required):') !!}
             <br><br>
-            <!--{!! Form::file('image1') !!}<br>
-            {!! Form::file('image2') !!}<br>
+            {!! Form::file('image1') !!}<br>
+            <!-- {!! Form::file('image2') !!}<br>
               {!! Form::file('image3') !!}<br> -->
     </div>
 
