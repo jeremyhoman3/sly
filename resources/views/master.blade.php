@@ -9,7 +9,7 @@
 
     @include('partials.header')
 
-    <div class="container" style="width: 72%">
+    <div class="container" style="width: 90%">
         @yield('content')
     </div>
 
