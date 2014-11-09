@@ -3,9 +3,13 @@
 @section('content')
     <h3>View items for sale</h3><br>
 
+    <?php $i = 1; $break = 3; ?>
     @foreach($items as $item)
-        <div class="row">
-            <div class="col-sm-6 col-md-4">
+        @if ($i == 1)
+            <div class="row">
+        @endif
+            <!-- item -->
+            <div class="col-sm-4">
                 <div class="thumbnail">
                     <img src="http://placehold.it/300&text=placehold.it+rocks!" alt="...">
                     <div class="caption">
@@ -17,6 +21,10 @@
                     </div>
                 </div>
             </div>
-        </div>
+        @if ($i > $break)
+            </div>
+            <?php $i = 3; ?>
+        @endif
+        <?php $i++; ?>
     @endforeach
 @stop
