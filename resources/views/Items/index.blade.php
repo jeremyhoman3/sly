@@ -1,16 +1,16 @@
 @extends('...master')
 
 @section('content')
-    <h3>View items for sale</h3><br>
+    <h3>Items for sale</h3><br>
 
-    <?php $i = 1; $break = 3; ?>
+    <?php $i = 1; $break = 4; ?>
     @foreach($items as $item)
         @if ($i == 1)
             <div class="row">
         @endif
             <!-- item -->
-            <div class="col-sm-4">
-                <div class="thumbnail">
+            <div class="col-sm-3">
+                <div class="thumbnail" style="height: 420px;">
                     <img src="http://placehold.it/300&text=placehold.it+rocks!" alt="...">
                     <div class="caption">
                         <h4>{{ $item->title }}</h4>
@@ -23,7 +23,7 @@
             </div>
         @if ($i > $break)
             </div>
-            <?php $i = 3; ?>
+            <?php $i = 1; ?>
         @endif
         <?php $i++; ?>
     @endforeach

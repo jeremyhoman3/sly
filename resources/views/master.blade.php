@@ -4,12 +4,13 @@
   <meta charset="UTF-8">
   <title>Slightly Used</title>
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/custom.css">
 </head>
 <body>
 
     @include('partials.header')
 
-    <div class="container" style="width: 90%">
+    <div class="container-fluid" style="width: 85%;">
         @yield('content')
     </div>
 
